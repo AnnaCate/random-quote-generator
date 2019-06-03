@@ -8,46 +8,62 @@ By: Anna Fulton
 
 const quotes = [
 {
-  quote: "Don't trust anything you read on the Internet.",
-  source: "Harriet Beecher Stowe",
-  citation: "Wikipedia"
+  quote: "If you set your goals ridiculously high and it's a failure, you will fail above everyone else's success.",
+  source: "James Cameron"
 }, 
 {
-  quote: "How unspeakably the lengthening of memories in common endears our old friends!",
-  source: "George Eliot",
-  year: 1999
+  quote: "Leave nothing for tomorrow which can be done today.",
+  source: "Abraham Lincoln",
+  citation: "The Collected Works of Abraham Lincoln",
+  year: "1850"
 },
 {
-  quote: "The lowest and vilest alleys of London do not present a more dreadful record of sin than does the smiling and beautiful countryside.",
-  source: "Arthur Conan Doyle"
+  quote: "Tell me and I forget. Teach me and I remember. Involve me and I learn.",
+  source: "Xun Kuang",
+  citation: "Xunzi",
+  year: "3rd century BCE"
 },
 {
-  quote: "We seldom speak of the virtue which we have, but much oftener of that which we lack.",
-  source: "Oliver Goldsmith"
+  quote: "Don't judge each day by the harvest you reap but by the seeds that you plant.",
+  source: "Robert Louis Stevenson"
 },
 {
-  quote: "It is possible to be below flattery as well as above it.",
-  source: "Thomas Babington"
+  quote: "You have brains in your head. You have feet in your shoes. You can steer yourself any direction you choose.",
+  source: "Dr. Seuss",
+  citation: "Oh, the Places You'll Go",
+  year: "1990"
 }];
 
 const getRandomQuote = () => {
-  const num = quotes[Math.floor(Math.random() * quotes.length)];
-  return num;
+  return quotes[Math.floor(Math.random() * quotes.length)];
 }
 
 const printQuote = () => {
   const randomQuote = getRandomQuote();
+  let htmlString;
+  const quote = randomQuote.quote;
+  const source = randomQuote.source;
+  const citation = randomQuote.citation;
+  const year = randomQuote.year;
+  const div = document.getElementById('quote-box');
 
-  let htmlString = `<p class="quote">${randomQuote.quote}</p><p class="source">${randomQuote.source}`;
-  if (randomQuote.citation) {
-    htmlString = `${htmlString}<span class="citation">${randomQuote.citation}</span>`;
+  // Set htmlString variable to include the quote and source:
+  htmlString = `<p class="quote">${quote}</p><p class="source">${source}`;
+  
+  // Append citation if there is one:
+  if (citation) {
+    htmlString = `${htmlString}<span class="citation">${citation}</span>`;
   }
-  if (randomQuote.year) {
-    htmlString = `${htmlString}<span class="year">${randomQuote.year}</span>`;
+
+  // Append year if there is one:
+  if (year) {
+    htmlString = `${htmlString}<span class="year">${year}</span>`;
   }
+
+  // Append closing p tag:
   htmlString = `${htmlString}</p>`;
 
-  const div = document.getElementById('quote-box');
+  // Put htmlString on page:
   div.innerHTML = htmlString;
 }
 
