@@ -41,7 +41,7 @@ const quotes = [
 
 let copy = [];
 
-const getRandomQuote = (arr) => {
+const getRandomQuote = arr => {
   if (copy.length < 1) {
     copy = [...arr];
   }
@@ -53,7 +53,7 @@ const getRandomQuote = (arr) => {
   return quote;
 }
 
-const printQuote = (arr) => {
+const printQuote = arr => {
   const randomQuote = getRandomQuote(arr);
   const quote = randomQuote.quote;
   const source = randomQuote.source;
