@@ -66,12 +66,12 @@ const printQuote = arr => {
   
   // Append citation if there is one:
   if (citation) {
-    htmlString = `${htmlString}<span class="citation">${citation}</span>`;
+    htmlString += `<span class="citation">${citation}</span>`;
   }
 
   // Append year if there is one:
   if (year) {
-    htmlString = `${htmlString}<span class="year">${year}</span>`;
+    htmlString += `<span class="year">${year}</span>`;
   }
 
   // Append closing p tag & put it on the page:
@@ -79,8 +79,8 @@ const printQuote = arr => {
 }
 
 const getRandomColor = () => {
-  var letters = '0123456789ABCDEF';
-  var color = '#';
+  const letters = '0123456789ABCDEF';
+  let color = '#';
   for (let i = 0; i < 6; i++) {
     color += letters[Math.floor(Math.random() * 16)];
   }
